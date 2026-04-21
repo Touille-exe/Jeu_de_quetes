@@ -4,10 +4,35 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Menu_demarrage.hpp"
+#include "Random.hpp"
 
 int main() {
     // 1. Initialisation de la fenêtre
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Jeu de Quetes");
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "Jeu de Quetes");
+    // 1. Charger l'image depuis le fichier
+    int miaou = aleatoire(1,4);
+    std::string add_icone;
+    if (miaou == 1) {
+        add_icone = "assets/chat1.jpg";
+    } else if (miaou == 2) {
+        add_icone = "assets/chat2.jpg";
+    } else if (miaou == 3) {
+        add_icone = "assets/chat3.jpg";
+    } else {
+        add_icone = "assets/chat4.jpg";
+    }
+
+    sf::Image icone;
+    if (!icone.loadFromFile(add_icone)) {
+        // Si l'image ne charge pas, on affiche une erreur, mais le jeu continue
+        std::cerr << "Impossible de charger l'icone !" << std::endl;
+    } else {
+        // 2. Appliquer l'icone à la fenêtre
+        // .getPixelsPtr() donne les données brutes de l'image
+        // .getSize().x et .y donnent les dimensions
+        window.setIcon(icone.getSize().x, icone.getSize().y, icone.getPixelsPtr());
+    }
+
     std::cout << "Jeu lance" << std::endl;
     std::string etat("menu_demarrage");
 
@@ -24,6 +49,9 @@ int main() {
             if (etat == "menu_demarrage" && event.type == sf::Event::KeyPressed) {
                 if (event.key.code == sf::Keyboard::Escape) {
                     window.close();
+                }
+                if (event.key.code == sf::Keyboard::Space) {
+                    etat = "miaou";
                 }
             }
         }

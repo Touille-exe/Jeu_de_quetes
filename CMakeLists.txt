@@ -26,6 +26,7 @@ set(SOURCES
         main.cpp
         Menu_demarrage.cpp
         Menu_demarrage.hpp
+        Random.hpp
 )
 
 
@@ -33,7 +34,7 @@ set(SOURCES
 
 # On définit le dossier source des ressources et le dossier de destination
 set(ASSETS_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/assets")
-set(ASSETS_DEST_DIR "${CMAKE_CURRENT_BINARY_DIR}/assets")
+set(ASSETS_DEST_DIR "${CMAKE_CURRENT_BINARY_DIR}")
 
 # Commande pour copier le dossier assets lors de la compilation
 file(COPY ${ASSETS_SOURCE_DIR} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
