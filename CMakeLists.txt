@@ -21,9 +21,32 @@ FetchContent_Declare(SFML
 FetchContent_MakeAvailable(SFML)
 #lance le téléchargement et rend la bibliothèque disponible pour notre projet
 
+# Variable des fichiers sources
+set(SOURCES
+        main.cpp
+        Menu_demarrage.cpp
+        Menu_demarrage.hpp
+        Random.hpp
+)
+
+
+# --- GESTION DES RESSOURCES ---
+
+# On définit le dossier source des ressources et le dossier de destination
+set(ASSETS_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/assets")
+set(ASSETS_DEST_DIR "${CMAKE_CURRENT_BINARY_DIR}")
+
+# Commande pour copier le dossier assets lors de la compilation
+file(COPY ${ASSETS_SOURCE_DIR} DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
+# Optionnel : S'assurer que si on modifie un fichier dans assets, il est recopié
+add_custom_target(copy_assets ALL
+        COMMAND ${CMAKE_COMMAND} -E copy_directory ${ASSETS_SOURCE_DIR} ${ASSETS_DEST_DIR}
+        COMMENT "Copie des ressources vers le dossier de build..."
+)
 
 #Ajouter un .exe ou .deb/.appimage quand on compile
-add_executable(Jeu_De_Quetes main.cpp)
+add_executable(Jeu_De_Quetes ${SOURCES})
 
 #ajout du module graphique à Jeu_De_Quetes
 target_link_libraries(Jeu_De_Quetes PRIVATE sfml-graphics sfml-window sfml-system)
