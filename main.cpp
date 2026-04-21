@@ -51,7 +51,15 @@ int main() {
                     window.close();
                 }
                 if (event.key.code == sf::Keyboard::Space) {
-                    etat = "miaou";
+                    etat = "demo_quete1";
+                }
+            }
+            if (etat == "demo_quete1" && event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Space) {
+                    std::cout << "espace" << std::endl;
+                }
+                if (event.key.code == sf::Keyboard::Escape) {
+                    etat = "menu_demarrage";
                 }
             }
         }
@@ -60,8 +68,15 @@ int main() {
         // C'est ici qu'on calculera les déplacements, les combats, etc.
 
         // 5. Affichage (Render)
-        window.clear(sf::Color::Black); // Étape A : On efface l'écran avec du noir
-        dessinerMenu(window);
+        window.clear(sf::Color::Black);// Étape A : On efface l'écran avec du noir
+
+        if (etat == "demo_quete1") {
+            std::cout << "quete 1" << std::endl;
+            window.clear(sf::Color::Green);
+        }
+        if (etat == "menu_demarrage") {
+            dessinerMenu(window);
+        }
 
         // Étape B : C'est ici qu'on dessinera nos Gobelins, Orques et le décor !
 
