@@ -1,0 +1,24 @@
+Nom,Déplacements,Vies,Force,Endurance,Magie,Armure,Objets,xp de team
+Gobelin,2,4,2,2,0,rien,Petit bouclier en bois,3
+Gobelin archer,2,4,2,2,0,rien,Petit arc,5
+Gobelin lancier,2,4,2,2,0,rien,"Petit Bouclier en bois, petite lance",3
+Gobelin filet,5,4,0,2,0,rien,filet,5
+Gobelin tambour,3,5,2,2,0,rien,tambour de gobelin,6
+Gobelin bannière,2,5,3,3,0,rien,bannière de gobelin,6
+chef Gobelin,3,5,3,3,2,rien,petit bouclier en bois,7
+poilu,3,5,3,3,0,rien,Bouclier en bois,8
+poilu archer,3,5,3,3,0,rien,arc,9
+poilu lancier,3,5,3,3,0,rien,"Bouclier en bois, lance",8
+poilu trompettiste,4,6,3,3,0,rien,"arc, trompette de poilu",10
+poilu bannière,3,6,4,4,0,rien,"arc, bannière de poilu",10
+chef poilu,4,6,4,4,0,rien,bouclier en bois,11
+cornu,3,12,6,6,0,armure légère,Hache à 2 mains,15
+cornu trompettiste,4,13,6,6,0,armure légère,Trompète de cornu,16
+cornu bannière,3,13,7,7,0,armure légère,bannière de poilu,16
+chef cornu,4,14,7,7,0,armure légère,Hache à 2 mains,17
+mort vivant,2,2,2,2,0,rien,rien,2
+orque,3,6,3,3,0,rien,rien,9
+chef orque,3,8,4,4,0,rien,épée à une main,12
+orque noir,3,10,4,4,0,tenue en cuir épais,épée à une main,13
+chef orque noir,3,12,5,9,0,armure légère,épée à une main,14
+nuée de scarabés,5,2,2,20,0,rien,rien,2
