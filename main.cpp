@@ -3,8 +3,13 @@
 //
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include "Ecran_quete.hpp"
 #include "Menu_demarrage.hpp"
 #include "Random.hpp"
+#include "FichierCsv.hpp"
+
+
+bool startQueteConsole = true;
 
 int main() {
     // 1. Initialisation de la fenêtre
@@ -51,7 +56,16 @@ int main() {
                     window.close();
                 }
                 if (event.key.code == sf::Keyboard::Space) {
-                    etat = "miaou";
+                    etat = "quete_console";
+                }
+            }
+            if (etat == "quete_console" && event.type == sf::Event::KeyPressed) {
+                if (event.key.code == sf::Keyboard::Space) {
+                    std::cout << "espace" << std::endl;
+                }
+                if (event.key.code == sf::Keyboard::Escape) {
+                    etat = "menu_demarrage";
+                    startQueteConsole = true;
                 }
             }
         }
@@ -60,8 +74,19 @@ int main() {
         // C'est ici qu'on calculera les déplacements, les combats, etc.
 
         // 5. Affichage (Render)
-        window.clear(sf::Color::Black); // Étape A : On efface l'écran avec du noir
-        dessinerMenu(window);
+        window.clear(sf::Color::Black);// Étape A : On efface l'écran avec du noir
+
+
+        if (etat == "quete_console") {
+            if (startQueteConsole) {
+                DebutQueteConsole(startQueteConsole);
+            }
+            window.clear(sf::Color::Green);
+            dessiner_QueteConsole(window);
+        }
+        if (etat == "menu_demarrage") {
+            dessinerMenu(window);
+        }
 
         // Étape B : C'est ici qu'on dessinera nos Gobelins, Orques et le décor !
 
