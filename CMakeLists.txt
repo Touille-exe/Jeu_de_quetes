@@ -27,6 +27,10 @@ set(SOURCES
         Menu_demarrage.cpp
         Menu_demarrage.hpp
         Random.hpp
+        Ecran_quete.hpp
+        Ecran_quete.cpp
+        FichierCsv.hpp
+        FichierCsv.cpp
 )
 
 
